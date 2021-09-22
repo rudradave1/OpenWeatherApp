@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "133085587193",
+    "project_id": "weatherinformationapplication",
+    "storage_bucket": "weatherinformationapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:133085587193:android:56cacefe58796873502428",
+        "android_client_info": {
+          "package_name": "com.rudra.weatherinformationapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "133085587193-kamk9dlisg9a6u9ll0g09pavi19b4gos.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0qQPEaxnS08x_4Z34AiH3MSEZYgrx9hg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "133085587193-kamk9dlisg9a6u9ll0g09pavi19b4gos.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
