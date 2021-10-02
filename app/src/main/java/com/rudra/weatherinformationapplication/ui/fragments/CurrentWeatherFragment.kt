@@ -33,17 +33,22 @@ class CurrentWeatherFragment(private val lat: String, private val lon: String) :
         titleTextView = view.findViewById(R.id.titleTextView)
         descriptionTextView = view.findViewById(R.id.descriptionTextView)
 
+        return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         val viewModel = ViewModelProvider(this, WeatherViewModelFactory(WeatherRepository(retrofitService, lat, lon, getString(R.string.open_weather_api_key)))).get(WeatherViewModel::class.java)
         viewModel.weatherList.observe(requireActivity(), Observer {
             Log.d(TAG, "onCreate: $it")
             titleTextView.text = it.weather[0].main
             descriptionTextView.text = it.weather[0].description
         })
+
         viewModel.errorMessage.observe(requireActivity(), Observer {
 
         })
         viewModel.getWeather()
-        return view
-
     }
 }

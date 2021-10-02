@@ -2,7 +2,7 @@ package com.rudra.weatherinformationapplication.viewmodels
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.rudra.weatherinformationapplication.model.Weather
+import com.rudra.weatherinformationapplication.data.model.Weather
 import com.rudra.weatherinformationapplication.network.WeatherRepository
 import retrofit2.Call
 import retrofit2.Callback

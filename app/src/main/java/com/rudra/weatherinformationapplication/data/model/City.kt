@@ -1,5 +1,8 @@
-package com.rudra.weatherinformationapplication.model
+package com.rudra.weatherinformationapplication.data.model
 
+import androidx.room.Entity
+
+@Entity
 data class City(
     val coord: CoordX,
     val country: String,

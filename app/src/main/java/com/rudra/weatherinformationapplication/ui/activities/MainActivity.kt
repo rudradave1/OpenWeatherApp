@@ -25,6 +25,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.room.Room
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import androidx.security.crypto.MasterKeys
@@ -39,6 +40,10 @@ import com.google.android.gms.tasks.Task
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.rudra.weatherinformationapplication.R
+import com.rudra.weatherinformationapplication.data.AppDatabase
+import com.rudra.weatherinformationapplication.data.model.ForecastItem
+import com.rudra.weatherinformationapplication.data.model.Weather
+import com.rudra.weatherinformationapplication.data.model.WeatherXX
 import java.io.IOException
 import java.util.*
 import kotlin.math.roundToInt
@@ -63,6 +68,17 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val db = Room.databaseBuilder(
+            applicationContext,
+            AppDatabase::class.java, "WeatherDatabase"
+        ).build()
+        val weatherDao = db.weatherDao()
+        val forecastHistory: List<ForecastItem> = weatherDao.getForecastHistory()
+        val weatherHistory: List<Weather> = weatherDao.getCurrentWeatherHistory()
+
+        Log.d(TAG, "onCreate: $forecastHistory")
+        Log.d(TAG, "onCreate: $weatherHistory")
 
         currentLocationTextView = findViewById(R.id.currentLocationTextView)
         chooseLocationButton = findViewById(R.id.chooseLocationButton)
